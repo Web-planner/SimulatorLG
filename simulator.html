@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = 'stylesheet' type = "text/css" href = "styles.css">
+        
+        <title>JS Logic Gate Simulator</title>
+    </head>
+	<style>body{
+    background-color: #f2f2f2;
+}
+
+.border{
+    border-radius: 5px;
+    border: 2px solid black;
+    
+    margin-bottom: 10px;
+}
+
+.bo{
+    font-weight: bold;
+}
+
+.div1{
+    margin-left: 10px;
+}
+
+.div2{
+    background-color: #a5a5a5;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    
+    margin: 0px;
+}
+
+.center{
+    display: block;
+    
+    margin: auto;
+    
+    width: 70%;
+    
+    margin-bottom: 15px;
+    
+    text-align: center;
+}
+
+.header1{
+    font-family: Times;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header2{
+    font-family: Times;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.text{
+    font-family: Times;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ftext{
+    font-family: Times;
+    text-align: center;
+    font-size: 18px;
+}
+	</style>
+    <script>function and(){
+    var a = document.getElementById("inaa").value;
+    var b = document.getElementById("inab").value;
+    
+    document.getElementById("anda").innerHTML = "Input a: " + a;
+    document.getElementById("andb").innerHTML = "Input b: " + b;
+    
+    if(a == b){
+        document.getElementById("andout").innerHTML = "AND output: " + a;
+    }else{
+        document.getElementById("andout").innerHTML = "AND output: 0";
+    }
+}
+
+function nand(){
+    var c = document.getElementById("innaa").value;
+    var d = document.getElementById("innab").value;
+    
+    document.getElementById("nanda").innerHTML = "Input a: " + c;
+    document.getElementById("nandb").innerHTML = "Input b: " + d;
+    
+    if(c === "0" && d === "0"){
+        document.getElementById("nandout").innerHTML = "NAND output: 1";
+    }else if(c === "1" && d === "1"){
+        document.getElementById("nandout").innerHTML = "NAND output: 0";
+    }else{
+        document.getElementById("nandout").innerHTML = "NAND output: 1";
+    }
+}
+
+function or(){
+    var e = document.getElementById("inora").value;
+    var f = document.getElementById("inorb").value;
+    
+    document.getElementById("ora").innerHTML = "Input a: " + e;
+    document.getElementById("orb").innerHTML = "Input a: " + f;
+    
+    if(e === "1" || f === "1"){
+        document.getElementById("orout").innerHTML = "OR output: 1";
+    }else{
+        document.getElementById("orout").innerHTML = "OR output: 0";
+    }
+}
+
+function nor(){
+    var g = document.getElementById("innoa").value;
+    var h = document.getElementById("innob").value;
+    
+    document.getElementById("nora").innerHTML = "Input a: " + g;
+    document.getElementById("norb").innerHTML = "Input b: " + h;
+    
+    if(g === "0" && h === "0"){
+        document.getElementById("norout").innerHTML = "NOR output: 1";
+    }else{
+        document.getElementById("norout").innerHTML = "NOR output: 0";
+    }
+}
+
+function exor(){
+    var i = document.getElementById("inexoa").value;
+    var j = document.getElementById("inexob").value;
+    
+    document.getElementById("exora").innerHTML = "Input a: " + i;
+    document.getElementById("exorb").innerHTML = "Input b: " + j;
+    
+    if(i === j){
+        document.getElementById("exorout").innerHTML = "EXOR output: 0";
+    }else{
+        document.getElementById("exorout").innerHTML = "EXOR output: 1";
+    }
+}
+
+function exnor(){
+    var k = document.getElementById("inexnoa").value;
+    var l = document.getElementById("inexnob").value;
+    
+    document.getElementById("exnora").innerHTML = "Input a: " + k;
+    document.getElementById("exnorb").innerHTML = "Input b: " + l;
+    
+    if(k === l){
+        document.getElementById("exnorout").innerHTML = "EX-NOR output: 1";
+    }else{
+        document.getElementById("exnorout").innerHTML = "EX-NOR 0utput: 0";
+    }
+}
+
+function inverter(){
+    var m = document.getElementById("ininva").value;
+    
+    document.getElementById("inva").innerHTML = "Input a: " + m;
+    
+    if(m === "0"){
+        document.getElementById("invertout").innerHTML = "INVERTER output: 1";
+    }else{
+        document.getElementById("invertout").innerHTML = "INVERTER output: 0";
+    }
+}
+
+function buffer(){
+    var n = document.getElementById("inbufa").value;
+    
+    document.getElementById("bufa").innerHTML = "Input a: " + n;
+    
+    document.getElementById("bufferout").innerHTML = "BUFFER output: " + n;
+}
+	</script>
+    <body>
+        <script src = "javascript.js"></script>
+    	<h1 class = "header1">Logic Gate Simulator</h1>
+    	<div class = "border">
+    	    <p class = "bo text">**NOTE: ALL inputs MUST be 0 or 1. If the inputs are something else, the output will display empty or display a wrong output.**</p>
+    	</div>
+    	
+        
+        <div class = "border center">
+            <h3 class = "header2">AND Gate (FINISHED): </h3>
+            
+            <div class = "div1">
+                <form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "inaa" value = "">
+                    
+                    <br>
+                    
+                    In b: <br>
+                    <input type = "text" id = "inab" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "and()">Output</button>
+                </form>
+            </div>
+            
+            <p class = "text" id = "anda"></p>
+            <p class = "text" id = "andb"></p>
+            <p class = "text" id = "andout"></p>
+        </div>
+        
+        <div class = "border center">
+            <div class = "div1">
+		<h3 class = "header2">NAND Gate (FINISHED): </h3>
+		
+		<form action = "javascript:void(0);">
+		    In a: <br>
+		    <input type = "text" id = "innaa" value = "">
+		    
+		    <br>
+		    
+		    In b: <br>
+		    <input type = "text" id = "innab" value = "">
+		    
+		    <br> <br>
+		    
+		    <button onclick = "nand()">Output</button>
+		</form>
+            </div>
+            
+            <p class = "text" id = "nanda"></p>
+            <p class = "text" id = "nandb"></p>
+            <p class = "text" id = "nandout"></p>
+        </div>
+        
+        <div class = "border center">
+            <h3 class = "header2">OR Gate (COMPLETED): </h3>
+            
+            <div class = "div1">
+                <form action = "javascript:void(0);">
+                    In a: <br>
+		    <input type = "text" id = "inora" value = "">
+		    
+		    <br> <br>
+		    
+		    In b: <br>
+		    <input type = "text" id = "inorb" value = "">
+		    
+		    <br> <br>
+		    
+		    <button onclick = "or()">Output</button>
+                </form>
+            </div>
+                
+            <p class = "text" id = "ora"></p>
+            <p class = "text" id = "orb"></p>
+            <p class = "text" id = "orout"></p>
+        </div>
+            
+        <div class = "border center">
+            <h3 class = "header2">NOR Gate (COMPLETED): </h3>
+            
+            <div class = "div1">
+		<form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "innoa" value = "">
+                    
+                    <br>
+                    
+                    In b: <br>
+                    <input type = "text" id = "innob" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "nor()">Output</button>
+		</form>
+                
+                <p class = "text" id = "nora"></p>
+                <p class = "text" id = "norb"></p>
+                <p class = "text" id = "norout"></p>
+            </div>
+        </div>
+        
+        <div class = "border center">
+            <h3 class = "header2">EX-OR Gate (COMPLETED): </h3>
+                
+            <div class = "div1">
+		<form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "inexoa" value = "">
+                    
+                    <br>
+                    
+                    In b: <br>
+                    <input type = "text" id = "inexob" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "exor()">Output</button>
+		</form>
+                
+                <p class = "text" id = "exora"></p>
+                <p class = "text" id = "exorb"></p>
+                <p class = "text" id = "exorout"></p>
+            </div>
+        </div>
+	
+	<div class = "border center">
+            <h3 class = "header2">EX-NOR Gate (COMPLETED): </h3>
+            
+            <div class = "div1">
+		<form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "inexnoa" value = "">
+                    
+                    <br>
+                    
+                    In b: <br>
+                    <input type = "text" id = "inexnob" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "exnor()">Output</button>
+		</form>
+                
+                <p class = "text" id = "exnora"></p>
+                <p class = "text" id = "exnorb"></p>
+                <p class = "text" id = "exnorout"></p>
+            </div>
+	</div>
+        
+        <div class = "border center">
+            <h3 class = "header2">NOT Gate (COMPLETED): </h3>
+            
+            <div class = "div1">
+		<form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "ininva" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "inverter()">Output</button>
+                </form>
+                
+                <p class = "text" id = "inva"></p>
+                <p class = "text" id = "invertout"></p>
+            </div>
+	</div>
+		
+        <div class = "border center">
+            <h3 class = "header2">BUFFER (COMPLETED): </h3>
+            
+            <div class = "div1">
+		<form action = "javascript:void(0);">
+                    In a: <br>
+                    <input type = "text" id = "inbufa" value = "">
+                    
+                    <br> <br>
+                    
+                    <button onclick = "buffer()">Output</button>
+                </form>
+                
+                <p class = "text" id = "bufa"></p>
+                <p class = "text" id = "bufferout"></p>
+            </div>
+	</div>
+	
+	<div class = "div2">
+            <footer>
+		<p class = "ftext">Copyright &copy; 2019 REC BANDA ,Uttar Pradesh</p>
+            </footer>
+	</div>
+    </body>
+</html>
